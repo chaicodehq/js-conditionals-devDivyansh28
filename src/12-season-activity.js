@@ -30,6 +30,69 @@
  * @param {number} temperature - Current temperature in Celsius
  * @returns {{ season: string, activity: string } | null}
  */
+
+function whichmonth(month){
+
+  if(month==12 || month==1 || month ==2 ){
+    return "Winter"
+  }
+  else if(month==3 || month==4 || month ==5){
+    return "Spring"
+  }
+  else if(month==6 || month==7 || month ==8){
+    return "Summer"
+  }
+  else if(month==9 || month==10 || month ==11){
+    return "Autumn"
+  }
+
+}
+
+
 export function getSeasonActivity(month, temperature) {
-  // Your code here
+  if(month < 1 || month > 12 || !Number.isInteger(month)){
+    return null;
+  }
+
+
+ 
+  var season = whichmonth(month);
+
+  if(season==="Winter"){
+
+    if(temperature <0){
+      return { season: "Winter", activity: "skiing" };
+    }
+    else if(temperature >=0)
+    {
+      return { season: "Winter", activity: "ice skating" };
+    }
+
+
+  }else if(season==="Spring"){
+
+    if (temperature > 20) {
+      return { season: "Spring", activity: "hiking" };
+    } else if (temperature <= 20) {
+      return { season: "Spring", activity: "museum visit" };
+    }
+
+
+  }else if(season==="Summer"){
+
+    if (temperature > 35) {
+      return { season: "Summer", activity: "swimming" };
+    } else if (temperature <= 35) {
+      return { season: "Summer", activity: "cycling" };
+    }
+
+
+  }else if(season==="Autumn"){
+
+    if (temperature > 15) {
+      return { season: "Autumn", activity: "nature walk" };
+    } else if (temperature <= 15) {
+      return { season: "Autumn", activity: "reading at a cafe" };
+    }
+  }
 }
